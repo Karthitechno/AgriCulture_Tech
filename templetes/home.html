@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Agriculture</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/chatStyle.css') }}">
+    <style>
+body {font-family: "Lato", sans-serif; background: black;}
+.mySlides {display: none}
+</style>
+</head>
+
+<body>
+  <style>
+
+
+    ul {
+      color: #00ffd5;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: transparent;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    li {
+      float: right;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+      background-color: #111;
+    }
+
+    .active {
+      background-color: #04AA6D;
+    }
+    .glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #13ddcc, #66045e, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+
+}
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+    </style>
+<!-- Navbar -->
+<div class="w3-top" style="background: #000000; height: 90px;" >
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu" >
+      <i class="fa fa-bars">
+
+      </i>
+    </a>
+
+
+      <ul>
+          <li><a href="index.html">
+          <button class="glow-on-hover" type="button">Weather</button></a></li>
+
+          <li><a href="Plant_Detect.html">
+              <button class="glow-on-hover" type="button">Plant_Detect</button></a></li>
+          <li><a href="Pest_Detect.html">
+              <button class="glow-on-hover" type="button">Pest_Detect</button></a></li>
+
+
+          <li style="float: left;">
+
+              <div id="google_translate_element"></div>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        function googleTranslateElementInit(){
+            new google.translate.TranslateElement(
+                {googleLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+
+
+
+    </script>
+
+          </li>
+
+        </ul>
+    <!-- <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TOUR</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a> -->
+
+    </div>
+    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+  </div>
+</div>
+
+
+
+<!-- Page content -->
+<div class="w3-content" style="max-width:100%;margin-top:46px; background: rgba(0, 0, 0, 0);">
+
+  <!-- Automatic Slideshow Images -->
+  <div class="mySlides w3-display-container w3-center" style="background: linear-gradient(rgb(0, 0, 0),transparent,black);">
+    <img src="i.jpg" style="width:100%; background: black; opacity: 0.4;" >
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small" style="position: absolute; margin-top: 0%; top: 0%; max-width: 100%; text-align: center;" >
+        <style>
+            .im h1{
+                max-width: 100%;
+                display: inline;
+                text-align: center;
+                font-size: 60px;
+    background: radial-gradient(
+    circle at 100%,
+    #0dd338,
+    #ac098e 50%,
+    #75ce10 75%,
+    #c03b06 75%
+    );
+    font-weight: 600;
+    background-size: 200% auto;
+    color: #000;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animatedTextGradient 1.5s linear infinite;
+    }
+
+    .im p{
+        color: red;
+        display: inline;
+        font-size: 55px;
+        font-weight: 900    ;
+    }
+
+    @keyframes animatedTextGradient {
+    to {
+    background-position: 200% center;
+    }
+    }
+
+        </style>
+        <div class="im" style="width: 2000px; left: 0px;">
+        <h1 >SMART AGRO <p id="blink" style="background: red;background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: animatedTextGradient 1.5s linear infinite;">
+              SURVEILLANCE
+          </p>
+
+    </h1>
+    <!-- <p id="blink">
+        SURVEILLANCE
+    </p> -->
+    <script type="text/javascript">
+      var blink = document.getElementById('blink');
+      setInterval(function() {
+          blink.style.opacity = (blink.style.opacity == 0 ? 1 : 0);
+      }, 600);
+  </script>
+
+</div>
+<br>
+<br>
+<h1 style="padding:15px;
+border-width:3px; border-style:solid; border-color:#9dff00;width:fit-content; width:-webkit-fit-content; width:-moz-fit-content;
+border-radius: 20px;
+height: 500px;
+text-align: left;
+font-size: 40px;
+font-family: Arial, Helvetica, sans-serif;
+background: linear-gradient(to right, #850e9c,
+        #d81a0c, #a2ca12, #ffffff);
+-webkit-text-fill-color: transparent;
+-webkit-background-clip: text;
+background-clip: text; ">
+    <strong>
+
+         IOT Data Display
+    </strong>
+    <div id="dataDisplay"></div>
+
+    <body>
+      <label class="switch" style="padding:30px; position: absolute; top: 200px;" >
+        <input type="checkbox" id="toggleSwitch" >
+        <span class="slider"></span>
+      </label>
+
+
+
+    <script>
+      async function fetchData() {
+        try {
+          const response = await fetch('/api/data');
+          const data = await response.json();
+          updateDataDisplay(data);
+        } catch (error) {
+          console.error('Error fetching data:', error);
+        }
+      }
+    const toggleSwitch = document.getElementById('toggleSwitch');
+
+    toggleSwitch.addEventListener('change', function () {
+      if (this.checked) {
+        var value=1
+        console.log(value);
+      } else {
+        var value=0
+        console.log(value);
+      }
+    });
+
+      function updateDataDisplay(data) {
+        const dataDisplay = document.getElementById('dataDisplay');
+        dataDisplay.innerHTML = `
+          <p>Humidity: ${data.humidity}%</p>
+          <p>Temperature: ${data.temperature}°C</p>
+          <!-- Add more data displays here -->
+        `;
+      }
+
+      fetchData();
+
+
+    </script>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <a href="https://io.adafruit.com/ajit_natarajan/dashboards/iot-plants" rel="noopener">Dash Board Look At Me!!</a>
+    </h1>
+
+    </div>
+  </div>
+  
+
+
+<!-- End Page Content -->
+<div class="container" style="position: fixed; bottom: 50px; right: 20px;">
+  <div class="chatbox">
+      <div class="chatbox__support">
+          <div class="chatbox__header">
+              <div class="chatbox__image--header">
+                  <img src="agriicon.png" alt="image" height="50px" width="50px">
+              </div>
+              <div class="chatbox__content--header">
+                  <h4 class="chatbox__heading--header">Smart Agro Chatbot</h4>
+                  <p class="chatbox__description--header">Get answers to your queries in any language</p>
+              </div>
+          </div>
+          <div class="chatbox__messages">
+              <div></div>
+          </div>
+          <!-- New chatbox response display area -->
+          <div class="chatbox__responses">
+              <!-- Chatbot responses will be displayed here -->
+          </div>
+          <div class="chatbox__footer">
+            <div id="infoBox">Say something</div>
+            <button id="voiceButton"><i class="fa fa-microphone" style="font-size:24px"></i></button>
+            <input id="recognizedText" type="text" placeholder="Write a message...">
+            <button class="chatbox__send--footer send__button">Send</button>
+          </div>
+      </div>
+      <div class="chatbox__button">
+        <button><img src="icon.jpg" /></button>
+      </div>
+  </div>
+</div>
+
+<script>$SCRIPT_ROOT = "http://127.0.0.1:5000";</script>
+<script>
+  class Chatbox {
+      constructor() {
+          this.args = {
+              openButton: document.querySelector('.chatbox__button'),
+              chatBox: document.querySelector('.chatbox__support'),
+              sendButton: document.querySelector('.send__button'),
+              inputField: document.getElementById('recognizedText'),
+              responsesArea: document.querySelector('.chatbox__responses')
+          };
+          this.state = false;
+          this.messages = [];
+      }
+
+      display() {
+          const { openButton, chatBox, sendButton } = this.args;
+          openButton.addEventListener('click', () => this.toggleState(chatBox));
+          sendButton.addEventListener('click', () => this.onSendButton(chatBox));
+          const node = chatBox.querySelector('input');
+          node.addEventListener("keyup", ({ key }) => {
+              if (key == "Enter") {
+                  this.onSendButton(chatBox);
+              }
+          });
+      }
+
+      toggleState(chatBox) {
+          this.state = !this.state;
+          if (this.state) {
+              chatBox.classList.add('chatbox--active');
+          } else {
+              chatBox.classList.remove('chatbox--active');
+          }
+      }
+
+      onSendButton(chatBox) {
+          var textField = chatBox.querySelector('input');
+          let text1 = textField.value;
+          if (text1 == "") { return; }
+          let msg1 = { name: "User", message: text1 };
+          this.messages.push(msg1);
+          fetch($SCRIPT_ROOT + '/chat', {
+              method: 'POST',
+              body: JSON.stringify({ message: text1 }),
+              mode: 'cors',
+              headers: {
+                  'Content-Type': 'application/json'
+              }
+          })
+          .then(r => r.json())
+          .then(r => {
+              let msg2 = { name: "Sam", message: r.answer };
+              this.messages.push(msg2);
+              this.updateChatText(chatBox);
+              textField.value = '';
+          }).catch((error) => {
+              console.error('Error:', error);
+              this.updateChatText(chatBox);
+              textField.value = '';
+          });
+      }
+
+      updateChatText(chatBox) {
+          var html = '';
+          this.messages.slice().reverse().forEach(function(item,) {
+              if (item.name == "Sam") {
+                  html += '<div class="messages__item messages__item--visitor">' + item.message + '</div>';
+              } else {
+                  html += '<div class="messages__item messages__item--operator">' + item.message +'</div>';
+              }
+          });
+          const responsesArea = this.args.responsesArea;
+          responsesArea.innerHTML = html;
+          responsesArea.scrollTop = responsesArea.scrollHeight;
+      }
+  }
+
+  const chatbox = new Chatbox();
+  chatbox.display();
+</script>
+
+<script>
+  // Automatic Slideshow - change image every 4 seconds
+  var myIndex = 0;
+  carousel();
+  function carousel() {
+      var i;
+      var x = document.getElementsByClassName("mySlides");
+      for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+      }
+      myIndex++;
+      if (myIndex > x.length) { myIndex = 1; }
+      x[myIndex - 1].style.display = "block";
+      setTimeout(carousel, 4000);
+  }
+  // Used to toggle the menu on small screens when clicking on the menu button
+  function myFunction() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
+          x.className += " w3-show";
+      } else {
+          x.className = x.className.replace(" w3-show", "");
+      }
+  }
+  // When the user clicks anywhere outside of the modal, close it
+  var modal = document.getElementById('ticketModal');
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
+</script>
+
+
+</body>
+</html>
